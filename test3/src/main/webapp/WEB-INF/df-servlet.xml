@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+   		http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        https://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/jdbc">
+<!-- 	xsd : xml에 대한 스키마 언어. html 태그와 같은 언어 -->
+	
+	
+<!-- 	<bean name="dbcon" class="test3.listdb"></bean> -->
+	<bean id="/index.do" class="test3.index"></bean>
+	<bean id="/getinfo.do" class="test3.getinfo"></bean>
+<!-- 	<bean class="test3.listdb"> -->
+<!-- 		<property name="dbcon" ref="dbcon"></property> -->
+<!-- 	</bean> -->
+	
+</beans>
