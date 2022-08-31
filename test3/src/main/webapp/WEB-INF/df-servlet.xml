@@ -7,16 +7,11 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd
    		http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/jdbc
         https://www.springframework.org/schema/jdbc/spring-jdbc.xsd
-        http://www.springframework.org/schema/jdbc">
+        ">
+        
 <!-- 	xsd : xml에 대한 스키마 언어. html 태그와 같은 언어 -->
-	
-	
-<!-- 	<bean name="dbcon" class="test3.listdb"></bean> -->
-	<bean id="/index.do" class="test3.index"></bean>
-	<bean id="/getinfo.do" class="test3.getinfo"></bean>
-<!-- 	<bean class="test3.listdb"> -->
-<!-- 		<property name="dbcon" ref="dbcon"></property> -->
-<!-- 	</bean> -->
+	<mvc:resources location="/" mapping="/**"></mvc:resources>
 	
 </beans>

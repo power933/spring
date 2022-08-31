@@ -10,14 +10,46 @@
   <description>
      Welcome to Tomcat
   </description>
-  
   <servlet>
   	<servlet-name>df</servlet-name>
   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  	<!-- 
+  		contextConfigLocation : 스프링 프레임 워크 전용 위치파일 파라미터
+  		contextLoaderListener : 스프링에서 contextLoader
+  		contextListener : 하나로 상속하는 파라미터 부분
+  	 -->
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>
+  		/WEB-INF/mapping/mapping.xml
+  		</param-value>
+  	</init-param>
+	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
   	<servlet-name>df</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
-
+	
+	<filter> <!-- 웹환경설정을 할때 사용 -->
+	<filter-name>encoding</filter-name>
+	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	<init-param>
+	<!-- 필터내임과 동일한거 아님, 해당클래스명 같은 이름으로 -->
+		<param-name>encoding</param-name> 
+		<param-value>UTF-8</param-value>
+	</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+		<!-- / : controller, *.do : .do에만 적용...  -->
+	</filter-mapping>
+	
 </web-app>
+
+
+
+
+
+
