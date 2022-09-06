@@ -20,9 +20,6 @@
     <jsp prefix="/WEB-INF/" suffix=".jsp"></jsp>
     </view-resolvers>
     
-<!--     <beans:bean class="test3.api"></beans:bean> -->
-<!--     <beans:bean class="test3.upload"></beans:bean> -->
-<!--     <beans:bean class="test3.dbquerys"></beans:bean> -->
 <context:component-scan base-package="test3"></context:component-scan>
 </beans:beans>
 
