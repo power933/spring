@@ -13,5 +13,5 @@
 	<view-resolvers>
 	<jsp prefix="/WEB-INF/views/" suffix=".jsp"/>
 	</view-resolvers>
-	<context:component-scan base-package="webpage"></context:component-scan>
+	<context:component-scan base-package="AOP"></context:component-scan>
 </beans:beans>

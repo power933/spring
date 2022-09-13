@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!--
+		bean처리 시 resources로 생성하여 처리시키도록 함 
+		bean : 스프링 ioc 관련사항
+		class를 미리 로드 후 id로 담아서 처리하는 형태
+		*bean 태그는 개발자가 제어가 불가능한 
+		외부 라이브러리와 같은 프로그램을 제작 또는 로드하고 싶을 때 사용
+	 -->
+	<bean id = "aa" class="AOP.aop_class1"></bean>
+	<bean id = "zbox" class="AOP.aop_classbox"></bean>
+	
+	<!--  데이터 의존성 값을 주입(setter) -->
+	<bean id = "bb" class="AOP.aop_class2">
+		<property name="box1" value="박스1 입니다"></property>
+		<property name="box2" value="박스2 입니다"></property>
+	</bean>
+	
+	
+	<!-- namespace를 이용해 의존성 주입하는 방식 -->
+	<bean id="cc" class="AOP.aop_class3" p:name="강감찬" p:age="35"/>
+	 
+	
+</beans>
+
+
+
+

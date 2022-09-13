@@ -10,5 +10,10 @@
 	  <select id="select_all" resultType="dataDAO">
 	  	select * from test3;
 	  </select>
-  
+	  
+	  <select id="select_api" parameterType="hashmap" resultType="apiDAO">
+	    select * from apimovie where aindate between #{value1} AND #{value2}
+	  </select>
+  		
+  		
   </mapper>

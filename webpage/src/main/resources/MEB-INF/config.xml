@@ -6,5 +6,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="webpage.dataDAO" alias="dataDAO"/>
+		<typeAlias type="webpage.movieDAO" alias="apiDAO"/>
 	</typeAliases>
 </configuration>

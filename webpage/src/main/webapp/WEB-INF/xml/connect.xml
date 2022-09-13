@@ -10,25 +10,34 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-		
-		<bean id = "dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-			<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-			<property name="url" value="jdbc:mysql://umj7-009.cafe24.com/power933"></property>
-			<property name="username" value="power933"></property>
-			<property name="password" value="so9332650!@"></property>
-		</bean>
-		
-		<!-- sql 매핑 -->
-		
-		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource"></property>
-			<property name="configLocation" value="classpath:/MEB-INF/config.xml"></property>
-			<property name="mapperLocations" value="classpath:/MEB-INF/mapper.xml"></property>
-		</bean>
-		<!-- mapper에서 사용된 태그(select,insert,update,delete) -->
-		<bean id = "sqlTemp" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref = "sqlSessionFactory"></constructor-arg>
-		</bean>
-		
-		
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://umj7-009.cafe24.com/power933"></property>
+		<property name="username" value="power933"></property>
+		<property name="password" value="so9332650!@"></property>
+	</bean>
+
+
+
+	<!-- sql 매핑 -->
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation"
+			value="classpath:/MEB-INF/config.xml"></property>
+		<property name="mapperLocations"
+			value="classpath:/MEB-INF/mapper.xml"></property>
+	</bean>
+	<!-- mapper에서 사용된 태그(select,insert,update,delete) -->
+	<bean id="sqlTemp" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+
+
 </beans>
