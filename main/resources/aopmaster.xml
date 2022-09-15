@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="dao_class" class="aop_master.aop_daotemp"></bean>
+	<bean id="service_class1" class="aop_master.aop_servicetemp" >
+		<property name="dao1" ref="dao_class"></property>
+	</bean>
+	
+	<bean id="log_class" class="aop_master.aop_log">
+		<property name="jdbcurl" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://umj7-009.cafe24.com/power933"></property>
+		<property name="username" value="power933"></property>
+		<property name="password" value="so9332650!@"></property>
+	</bean>
+	
+	<aop:config>
+		<aop:pointcut expression="within(aop_master.*aop_servicetemp)" id="cts_service"/>
+		<aop:pointcut expression="within(aop_master.*aop_daotemp)" id="cts_dao"/>
+		<aop:aspect id="timeck" ref="log_class">
+			<aop:around method="times" pointcut-ref="cts_service"/>
+			<aop:around method="times" pointcut-ref="cts_dao"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

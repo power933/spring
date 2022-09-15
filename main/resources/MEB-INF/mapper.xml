@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="sql">
+	  <select id="select_test" parameterType="string" resultType="dataDAO">
+	  	select now();
+	  </select>
+	  <select id="select_all" resultType="dataDAO">
+	  	select * from test3;
+	  </select>
+	  
+	  <select id="select_api" parameterType="hashmap" resultType="apiDAO">
+	    select * from apimovie where aindate between #{value1} AND #{value2}
+	  </select>
+  		
+  		
+  </mapper>
